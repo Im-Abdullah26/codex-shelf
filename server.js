@@ -13,7 +13,12 @@ const morgan = require("morgan");
 const session = require('express-session')
 const { MongoStore } = require('connect-mongo')
 
+
+const isSignedIn = require('./middleware/is-signed-in.js')
+const passUserToView = require('./middleware/pass-user-to-view.js')
+
 const authCtrl = require('./controllers/auth')
+const booksCtrl = require('./controllers/books')
 
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "3000";
@@ -30,6 +35,8 @@ app.use(express.urlencoded({ extended: false }));
 // Middleware for using HTTP verbs such as PUT or DELETE
 app.use(methodOverride("_method"));
 // Morgan for logging HTTP requests
+app.use(express.static('public'))
+
 app.use(morgan('dev'));
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -40,17 +47,23 @@ app.use(session({
     }),
 }))
 
+app.use(passUserToView)
+app.get('/books/new', isSignedIn, booksCtrl.showNewForm);
+
 app.get('/', (req, res) => {
     res.render('home.ejs', {
         user: req.session.user,
     })
 })
 
+// AUTH ROUTERS
 app.get('/auth/sign-up', authCtrl.showSignUpForm )
 app.post('/auth/sign-up', authCtrl.signUp)
 app.get('/auth/sign-in', authCtrl.showSignInForm)
 app.post('/auth/sign-in', authCtrl.signIn)
 app.delete('/auth/sign-out', authCtrl.signOut)
+
+
 
 app.get('/dashboard', async (req, res) => {
     if (!req.session.user){
@@ -60,6 +73,9 @@ app.get('/dashboard', async (req, res) => {
         user: req.session.user
     })
 })
+
+
+
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
