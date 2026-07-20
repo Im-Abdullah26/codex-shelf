@@ -9,7 +9,7 @@ const create = async (req, res) => {
   bookData.title = req.body.title
   bookData.author = req.body.author
   bookData.description = req.body.description
-  bookData.publisher = req.session._id
+  bookData.publisher = req.session.user._id
   if (req.body.coverImage) {
     bookData.coverImage = req.body.coverImage;
   }
@@ -24,10 +24,11 @@ const create = async (req, res) => {
 const index = async (req, res) => {
     const allBooks = await Book.find().populate('publisher')
     res.render('books/index.ejs', {
-    allBooks})
+    books: allBooks,})
 }
 
 module.exports = {
   showNewForm,
   create,
+  index,
 }

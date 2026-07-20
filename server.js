@@ -49,6 +49,7 @@ app.use(session({
 
 app.use(passUserToView)
 app.get('/books/new', isSignedIn, booksCtrl.showNewForm);
+app.post('/books', booksCtrl.create)
 
 app.get('/', (req, res) => {
     res.render('home.ejs', {
