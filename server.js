@@ -51,6 +51,7 @@ app.use(passUserToView)
 app.get('/books/new', isSignedIn, booksCtrl.showNewForm);
 app.post('/books', booksCtrl.create)
 app.get('/books', booksCtrl.index)
+app.get('/books/:bookId', booksCtrl.show)
 
 app.get('/', (req, res) => {
     res.render('home.ejs', {
