@@ -6,6 +6,18 @@
     <title>Index</title>
 </head>
 <body>
-   <h1>hello</h1> 
+<h1>All Books</h1> 
+
+<% allBooks.foreach((book) => { %>
+    <div>
+<h2><%= book.title %></h2>
+
+<p>Author: <%= book.author %></p>
+
+<p>Publisher: <%= book.publisher.username %></p>
+
+
+</div>
+  <% }) %>
 </body>
 </html>
