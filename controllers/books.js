@@ -27,8 +27,16 @@ const index = async (req, res) => {
     books: allBooks,})
 }
 
+const show = async (req, res) => {
+    const foundBook = await Book.findById(req.params.bookId).populate('publisher')
+    res.render('books/show.ejs', {
+    foundBook: foundBook,
+  })
+}
+
 module.exports = {
   showNewForm,
   create,
   index,
+  show,
 }
