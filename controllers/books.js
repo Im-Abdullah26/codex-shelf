@@ -52,4 +52,5 @@ module.exports = {
   index,
   show,
   deleteBook,
+  showEditForm,
 }
