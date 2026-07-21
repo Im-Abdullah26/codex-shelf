@@ -1,5 +1,5 @@
 const Book = require('../models/book')
-const 
+const Review = require('../models/review')
 
 const showNewForm = (req, res) => {
   res.render('books/new.ejs');
@@ -28,6 +28,7 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
     const foundBook = await Book.findById(req.params.bookId).populate('publisher')
+    
     res.render('books/show.ejs', {
     foundBook: foundBook,
   })
@@ -55,6 +56,18 @@ const updateBook = async (req, res) => {
    res.redirect(`/books/${req.params.bookId}`)
 }
 
+const createReview = async (req, res) => {
+  const reviewData = {}
+
+  reviewData.text = req.body.text
+  reviewData.reviewer = req.session.user._id
+  reviewData.book = req.params.bookId
+
+  await Review.create(reviewData)
+
+  res.redirect(`/books/${req.params.bookId}`)
+}
+
 module.exports = {
   showNewForm,
   create,
@@ -63,4 +76,5 @@ module.exports = {
   deleteBook,
   showEditForm,
   updateBook,
+  createReview,
 }

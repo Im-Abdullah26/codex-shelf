@@ -12,10 +12,12 @@ reviewer: {
 },
 book: {
   type: mongoose.Schema.Types.ObjectId,
-  ref: 'User',
+  ref: 'book',
   required: true
 }
 
 })
 
-module.exports 
+const Review = mongoose.model('Review', reviewSchema)
+
+module.exports = Review;
