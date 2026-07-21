@@ -38,6 +38,14 @@ const deleteBook= async (req, res) => {
 
 }
 
+const showEditForm = async (req, res) => {
+  const foundBook = await Book.findById(req.params.bookId);
+
+  res.render('books/edit.ejs', {
+   foundBook: foundBook,
+  })
+}
+
 module.exports = {
   showNewForm,
   create,
