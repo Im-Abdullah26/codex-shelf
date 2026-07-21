@@ -13,6 +13,9 @@
     <p>Publisher: <%= foundBook.publisher.username %></p>
     <img src="<%= foundBook.coverImage %>" alt="image" width="250">
 
+    <a href="/books/<%= foundBook._id %>/edit">
+  Edit Book
+</a>
     <form action="/books/<%= foundBook._id %>?_method=DELETE" method="POST">
   <button type="submit">Delete Book</button>
 </form>

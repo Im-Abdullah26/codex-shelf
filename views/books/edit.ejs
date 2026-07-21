@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Edit Book</h1>
+
+    <form>
+  Title:
+  <input
+    type="text"
+    name="title"
+    value="<%= foundBook.title %>"
+  />
+  Author:
+  <input 
+  type="text" 
+  name="author"
+  value="<%= foundBook.author %>" 
+  />
+  Description:
+  <input
+    type="text"
+    name="description"
+    value="<%= foundBook.description %>"
+
+>
+  Cover Image:
+  <input
+    type="text"
+    name="coverImage"
+    value="<%= foundBook.coverImage %>"
+  />
+  <button type="submit">Save Changes</button>
+
+</form>
+</body>
+</html>
