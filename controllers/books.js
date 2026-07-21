@@ -32,9 +32,16 @@ const show = async (req, res) => {
   })
 }
 
+const deleteBook= async (req, res) => {
+  await Book.findByIdAndDelete(req.params.bookId)
+  res.redirect('/books')
+
+}
+
 module.exports = {
   showNewForm,
   create,
   index,
   show,
+  deleteBook,
 }
