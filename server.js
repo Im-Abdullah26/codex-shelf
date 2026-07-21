@@ -52,6 +52,7 @@ app.post('/books', booksCtrl.create)
 app.get('/books', booksCtrl.index)
 app.get('/books/new', isSignedIn, booksCtrl.showNewForm)
 app.get('/books/:bookId', booksCtrl.show)
+
 app.delete('/books/:bookId', isSignedIn, booksCtrl.deleteBook)
 
 app.get('/', (req, res) => {
