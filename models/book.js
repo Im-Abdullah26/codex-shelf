@@ -16,7 +16,8 @@ description: {
   required: true
 },
 coverImage: {
-  type: String
+  type: String,
+  required: true
 },
 publisher: {
   type: mongoose.Schema.Types.ObjectId,

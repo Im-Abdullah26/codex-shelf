@@ -6,6 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1> <%= foundBook.title %></h1>
+    <p>Author: <%= foundBook.author %></p>
+    <p>Description: <%= foundBook.description %></p>
+    <p>Publisher: <%= foundBook.publisher.username %></p>
+    <img src="<%= foundBook.coverImage %>" alt="image" width="250">
+
+    <a href="/books">Back to all books</a>
 </body>
 </html>

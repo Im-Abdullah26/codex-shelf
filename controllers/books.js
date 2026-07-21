@@ -10,9 +10,7 @@ const create = async (req, res) => {
   bookData.author = req.body.author
   bookData.description = req.body.description
   bookData.publisher = req.session.user._id
-  if (req.body.coverImage) {
-    bookData.coverImage = req.body.coverImage;
-  }
+  bookData.coverImage = req.body.coverImage
 
   await Book.create(bookData);
 

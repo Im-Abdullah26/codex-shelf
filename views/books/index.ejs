@@ -10,7 +10,11 @@
 
 <% books.forEach((book) => { %>
     <div>
-<h2><%= book.title %></h2>
+<h2>
+    <a href="/books/<%= book._id %>">
+    <%= book.title %>
+    </a>
+  </h2>
 
 <p>Author: <%= book.author %></p>
 
