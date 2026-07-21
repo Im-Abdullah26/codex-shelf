@@ -20,6 +20,24 @@
   <button type="submit">Delete Book</button>
 </form>
 
+<h2>Write a Review</h2>
+
+<form action="/books/<%= foundBook._id %>/reviews" method="POST">
+  Review:
+  <textarea
+    id="text"
+    name="text"
+    rows="5"
+    required
+  ></textarea>
+
+  <br><br>
+
+  <button type="submit">Submit Review</button>
+</form>
+
+
+
     <a href="/books">Back to all books</a>
 </body>
 </html>
