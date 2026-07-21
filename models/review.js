@@ -1,23 +1,16 @@
 const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema({
- title: {
+ text: {
   type: String,
   required: true
 },
-author: {
-  type: String,
+reviewer: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: 'User',
   required: true
 },
-description: {
-  type: String,
-  required: true
-},
-coverImage: {
-  type: String,
-  required: true
-},
-publisher: {
+book: {
   type: mongoose.Schema.Types.ObjectId,
   ref: 'User',
   required: true
