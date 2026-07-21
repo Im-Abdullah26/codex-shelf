@@ -46,6 +46,14 @@ const showEditForm = async (req, res) => {
   })
 }
 
+const updateBook = async (req, res) => {
+  await Book.findByIdAndUpdate(
+    req.params.bookId,
+    req.body
+  )
+   res.redirect(`/books/${req.params.bookId}`)
+}
+
 module.exports = {
   showNewForm,
   create,
@@ -53,4 +61,5 @@ module.exports = {
   show,
   deleteBook,
   showEditForm,
+  updateBook,
 }

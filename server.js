@@ -54,6 +54,7 @@ app.get('/books/new', isSignedIn, booksCtrl.showNewForm)
 app.get('/books/:bookId', booksCtrl.show)
 app.delete('/books/:bookId', isSignedIn, booksCtrl.deleteBook)
 app.get('/books/:bookId/edit', isSignedIn, booksCtrl.showEditForm)
+app.put('/books/:bookId', isSignedIn, booksCtrl.updateBook)
 
 app.get('/', (req, res) => {
     res.render('home.ejs', {
