@@ -1,4 +1,8 @@
-ody {
+* {
+  box-sizing: border-box;
+}
+
+body {
   margin: 0;
   background-color: #f4f0e9;
   color: black;
@@ -6,7 +10,7 @@ ody {
 }
 
 main {
-  width: 10%;
+  width: 100%;
   max-width: 1100px;
   margin: 40px auto;
 }
@@ -29,4 +33,29 @@ a {
 
 a:hover {
   color: #358640;
+}
+
+nav {
+  background-color: #4a2f1b;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h2 {
+  margin: 0;
+  color: white;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #dfe8d8;
 }
