@@ -77,6 +77,18 @@ const createReview = async (req, res) => {
 }
 
 const deleteReview = async (req, res) =>{
+  
+  const foundReview = await Review.findById(req.params.reviewId);
+
+  if (foundReview.reviewer.equals(req.session.user._id)) {
+
+    await Review.findByIdAndDelete(req.params.reviewId)
+    res.redirect(`/books/${req.params.bookId}`)
+  
+  } else {
+    res.send("You don't have permission to do that.")
+  }
+
   await Review.findByIdAndDelete(req.params.reviewId)
 
   res.redirect(`/books/${req.params.bookId}`)
