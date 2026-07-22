@@ -25,7 +25,6 @@
 <form action="/books/<%= foundBook._id %>/reviews" method="POST">
   Review:
   <textarea
-    id="text"
     name="text"
     rows="5"
     required
@@ -36,7 +35,13 @@
   <button type="submit">Submit Review</button>
 </form>
 
-
+<h2>Reviews</h2>
+    <% foundReviews.forEach((review) => { %>
+  <p>
+    <strong><%= review.reviewer.username %>:</strong>
+    <%= review.text %>
+  </p>
+<% }) %>
 
     <a href="/books">Back to all books</a>
 </body>

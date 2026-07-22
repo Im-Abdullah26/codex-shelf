@@ -27,10 +27,18 @@ const index = async (req, res) => {
 }
 
 const show = async (req, res) => {
-    const foundBook = await Book.findById(req.params.bookId).populate('publisher')
-    
+
+    const foundBook = await Book.findById
+    (req.params.bookId)
+    .populate('publisher')
+
+    const foundReviews= await Review.find
+    ({ book: foundBook._id }).
+    populate("reviewer")
+
     res.render('books/show.ejs', {
-    foundBook: foundBook,
+    foundBook: foundBook, 
+    foundReviews: foundReviews,
   })
 }
 
