@@ -76,6 +76,13 @@ const createReview = async (req, res) => {
   res.redirect(`/books/${req.params.bookId}`)
 }
 
+const deleteReview = async (req, res) =>{
+  await Review.findByIdAndDelete(req.params.reviewId)
+
+  res.redirect(`/books/${req.params.bookId}`)
+
+}
+
 module.exports = {
   showNewForm,
   create,
@@ -85,4 +92,5 @@ module.exports = {
   showEditForm,
   updateBook,
   createReview,
+  deleteReview,
 }
