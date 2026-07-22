@@ -43,9 +43,14 @@ const show = async (req, res) => {
 }
 
 const deleteBook= async (req, res) => {
-  await Book.findByIdAndDelete(req.params.bookId)
-  res.redirect('/books')
+  const foundBook = await Book.findById(req.params.bookId)
 
+  if (foundBook.publisher.equals(req.session.user._id)) {
+    await Book.findByIdAndDelete(req.params.bookId)
+    res.redirect('/books')
+  } else {
+    res.send("You don't have permission to do that.")
+  }
 }
 
 const showEditForm = async (req, res) => {
