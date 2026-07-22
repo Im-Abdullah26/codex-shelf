@@ -62,11 +62,18 @@ const showEditForm = async (req, res) => {
 }
 
 const updateBook = async (req, res) => {
-  await Book.findByIdAndUpdate(
-    req.params.bookId,
-    req.body
-  )
-   res.redirect(`/books/${req.params.bookId}`)
+ const foundBook = await Book.findById(req.params.bookId)
+
+  if (foundBook.publisher.equals(req.session.user._id)) {
+    await Book.findByIdAndUpdate(
+      req.params.bookId,
+      req.body
+    )
+
+    res.redirect(`/books/${req.params.bookId}`)
+  } else {
+    res.send("You don't have permission to do that.")
+  }
 }
 
 const createReview = async (req, res) => {
