@@ -20,7 +20,7 @@
   Edit Book
 </a>
     <form action="/books/<%= foundBook._id %>?_method=DELETE" method="POST">
-  <button type="submit">Delete Book</button>
+  <button type="submit" class="danger-button">Delete Book</button>
 </form>
 
 <% } %>
@@ -52,7 +52,7 @@
     action="/books/<%= foundBook._id %>/reviews/<%= review._id %>?_method=DELETE"
     method="POST"
   >
-    <button type="submit">Delete Review</button>
+    <button type="submit" class="danger-button">Delete Review</button>
   </form>
     <% } %>
 
