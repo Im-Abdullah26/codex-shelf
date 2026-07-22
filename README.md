@@ -39,7 +39,7 @@ Codex Shelf is a full-stack book application where users can browse books, publi
 
 ### Live Website
 
-Deployed link
+[Deployed link](https://codex-shelf-1.onrender.com)
 
 ### Planning Materials
 
