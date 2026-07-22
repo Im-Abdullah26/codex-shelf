@@ -51,9 +51,14 @@ const deleteBook= async (req, res) => {
 const showEditForm = async (req, res) => {
   const foundBook = await Book.findById(req.params.bookId);
 
+   if (foundBook.publisher.equals(req.session.user._id)) {
   res.render('books/edit.ejs', {
    foundBook: foundBook,
   })
+  } else {
+    res.send("You don't have permission to do that.")
+  }
+
 }
 
 const updateBook = async (req, res) => {
