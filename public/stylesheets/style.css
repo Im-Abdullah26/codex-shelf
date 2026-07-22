@@ -1,0 +1,32 @@
+ody {
+  margin: 0;
+  background-color: #f4f0e9;
+  color: black;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  width: 10%;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+h1 {
+  color: #2f2118;
+}
+
+h2 {
+  color: #2f2118;
+}
+
+h3 {
+  color: #2f2118;
+}
+
+a {
+  color: #245f2b;
+}
+
+a:hover {
+  color: #358640;
+}
