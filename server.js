@@ -84,10 +84,6 @@ app.get('/dashboard', async (req, res) => {
 
 
 
-app.use((req, res) => {
-  res.status(404).render('404')
-})
-
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });
