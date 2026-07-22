@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <%- include('../partials/nav.ejs') %>
 </head>
 <body>
+     <%- include('../partials/nav.ejs') %>
+    <main>
 <h1>All Books</h1> 
 
+<div class="books-grid">
 <% books.forEach((book) => { %>
     <div>
 <h2>
@@ -20,7 +22,7 @@
 
    <img
     src="<%= book.coverImage %>"
-    width="100"
+    width="200"
   >
 
 <p>Author: <%= book.author %></p>
@@ -29,6 +31,11 @@
 
 
 </div>
+
   <% }) %>
+
+</div>
+
+</main>  
 </body>
 </html>
