@@ -106,3 +106,22 @@ form {
   max-width: 700px;
   margin-top: 25px;
 }
+
+input{
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #c8c8c8;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #c8c8c8;
+  border-radius: 6px;
+  font-size: 16px;
+}
