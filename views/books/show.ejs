@@ -5,25 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <%- include('../partials/nav.ejs') %>
 </head>
+
 <body>
+    <%- include('../partials/nav.ejs') %>
+    
+    <main>
+
+    <div class="book-details">
+        <img src="<%= foundBook.coverImage %>" alt="image" width="250">
+
+    <div class="book-info">
+
     <h1> <%= foundBook.title %></h1>
     <p>Author: <%= foundBook.author %></p>
     <p>Description: <%= foundBook.description %></p>
     <p>Publisher: <%= foundBook.publisher.username %></p>
-    <img src="<%= foundBook.coverImage %>" alt="image" width="250">
+    
 
 <% if (foundBook.publisher._id.equals(user._id)) { %>
+<div class="book-actions">
 
-    <a href="/books/<%= foundBook._id %>/edit">
+    <a href="/books/<%= foundBook._id %>/edit" class="button">
   Edit Book
 </a>
     <form action="/books/<%= foundBook._id %>?_method=DELETE" method="POST">
   <button type="submit" class="danger-button">Delete Book</button>
 </form>
 
+</div>
+
 <% } %>
+
+ </div>
+
+</div>
+
+<section class="reviews-section">
 
 <h2>Write a Review</h2>
 
@@ -41,14 +59,19 @@
 </form>
 
 <h2>Reviews</h2>
+<div class="reviews-list">
+
     <% foundReviews.forEach((review) => { %>
-  <p>
+    <article class="review-card">
+ 
+    <p>
     <strong><%= review.reviewer.username %>:</strong>
     <%= review.text %>
   </p>
 
 <% if (review.reviewer._id.equals(user._id)) { %>  
 <form
+    class="review-delete-form"
     action="/books/<%= foundBook._id %>/reviews/<%= review._id %>?_method=DELETE"
     method="POST"
   >
@@ -56,9 +79,17 @@
   </form>
     <% } %>
 
-<% }) %>
+</article>
 
+<% }) %>
+</div>
 
     <a href="/books">Back to all books</a>
+ 
+</section>
+
+  </main>
+
+
 </body>
 </html>

@@ -2,24 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico.png"/>
-    <title>Home Page</title>
+    <title>Codex Shelf</title>
 </head>
+
 <body>
-    <% if (user) { %>
-        <h1>Welcome to the app <%= user.username %></h1>
-        <form action="/auth/sign-out?_method=DELETE" method="POST">
-            <button type="submit">Sign Out</button>
+
+<main class="hero">
+
+<h1>Welcome to Codex Shelf</h1>
+
+<p class="hero-text">
+    Discover, publish, and review books all in one place.
+</p>
+
+<% if (user) { %>
+    <h2>Hello, <%= user.username %> 👋</h2>
+
+    <div class="hero-buttons">
+
+    <a href="/books" class="button">Browse Books</a>
+
+    <a href="/books/new" class="button">Add a Book</a>
+
+    <a href="/dashboard" class="button">Dashboard</a>
+
+        </div>
+
+    <form action="/auth/sign-out?_method=DELETE" method="POST">
+            <button type="submit" class="danger-button">
+                Sign Out
+            </button>
         </form>
-        <a href="/dashboard">View dashboard</a>
+
     <% } else { %>
-        <a href="/auth/sign-up">Sign Up</a>
-        <a href="/auth/sign-in">Sign In</a>
+
+        <div class="hero-buttons">
+
+            <a href="/auth/sign-up" class="button">
+                Sign Up
+            </a>
+
+            <a href="/auth/sign-in" class="button">
+                Sign In
+            </a>
+
+        </div>
+
     <% } %>
 
-    
+</main>
+
 </body>
 </html>

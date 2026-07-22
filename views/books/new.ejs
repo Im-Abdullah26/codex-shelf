@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Book</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <%- include('../partials/nav.ejs') %>
 </head>
 <body>
+    <%- include('../partials/nav.ejs') %>
+    <main class="form-page">
     <h1>Add a New Book</h1>
 
 <form action="/books" method="POST">
@@ -21,9 +22,10 @@
   <textarea name="description" id="description" required></textarea>
 
   <label for="coverImage">Cover Image:</label>
-  <input type="text" name="coverImage" id="coverImage">
+  <input type="text" name="coverImage" id="coverImage" required>
 
   <button type="submit">Add Book</button>
 </form>
+</main>
 </body>
 </html>

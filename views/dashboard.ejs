@@ -9,6 +9,25 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h1><%= user.username %>'s dashboard</h1>
+    <h1><%= user.username %>'s Dashboard</h1>
+    <main class="dashboard">
+
+<h1>📚 Dashboard</h1>
+
+<p>Welcome back, <%= user.username %>!</p>
+
+<div class="dashboard-actions">
+
+    <a href="/books" class="button">Browse Books</a>
+
+    <a href="/books/new" class="button">Add Book</a>
+
+    <form action="/auth/sign-out?_method=DELETE" method="POST">
+        <button class="danger-button">Sign Out</button>
+    </form>
+
+</div>
+
+</main>
 </body>
 </html>
